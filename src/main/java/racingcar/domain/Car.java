@@ -18,7 +18,11 @@ public class Car {
         }
     }
 
-    public int getMileage() {
-        return mileage.getMeter();
+    public CarName getCarName() {
+        return carName;
+    }
+
+    public Mileage getMileage() {
+        return mileage;
     }
 }
