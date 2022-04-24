@@ -25,4 +25,8 @@ public class RoundManager {
     public Round getCurrentRound() {
         return rounds.getRound(currentRound);
     }
+
+    public Round getLastRound() {
+        return rounds.getRound(totalRound);
+    }
 }

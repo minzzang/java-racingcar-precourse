@@ -13,7 +13,8 @@ class RandomNumberPickerTest {
     @Test
     public void pick() {
         // when
-        int pick = RandomNumberPicker.pick();
+        RandomNumberPicker picker = new RandomNumberPicker();
+        int pick = picker.pick();
         // then
         assertThat(pick).isBetween(MIN_NUMBER, MAX_NUMBER);
     }

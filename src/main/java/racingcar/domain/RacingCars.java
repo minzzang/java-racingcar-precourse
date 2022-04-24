@@ -7,10 +7,12 @@ import java.util.List;
 
 public class RacingCars {
 
+    private final RandomNumberPicker picker;
     final List<Car> cars;
 
-    public RacingCars(String... carNames) {
-        cars = mapCars(carNames);
+    public RacingCars(RandomNumberPicker picker, String... carNames) {
+        this.picker = picker;
+        this.cars = mapCars(carNames);
     }
 
     private List<Car> mapCars(String[] carNames) {
@@ -23,7 +25,7 @@ public class RacingCars {
 
     public void run(Round round) {
         for (Car car : cars) {
-            int randomNumber = RandomNumberPicker.pick();
+            int randomNumber = picker.pick();
             car.run(randomNumber);
 
             car.record(round);

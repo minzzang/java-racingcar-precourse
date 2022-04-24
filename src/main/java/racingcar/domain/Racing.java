@@ -7,7 +7,7 @@ public class Racing {
 
     public Racing(RacingCars cars, int totalRound) {
         this.cars = cars;
-        roundManager = new RoundManager(totalRound);
+        this.roundManager = new RoundManager(totalRound);
     }
 
     public void play() {
@@ -15,5 +15,10 @@ public class Racing {
             cars.run(roundManager.getCurrentRound());
             roundManager.nextRound();
         }
+    }
+
+    public Winners getWinners() {
+        Round lastRound = roundManager.getLastRound();
+        return lastRound.getWinners();
     }
 }

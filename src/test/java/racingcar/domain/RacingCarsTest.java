@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.utils.RandomNumberPicker;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,7 +12,7 @@ class RacingCarsTest {
     @Test
     public void run() {
         // given
-        MockCars cars = new MockCars("그랜져", "제네시스");
+        MockCars cars = new MockCars(new RandomNumberPicker(),"그랜져", "제네시스");
         Round round = new Round();
         // when
         cars.run(round);
@@ -23,8 +24,8 @@ class RacingCarsTest {
 
         int count;
 
-        public MockCars(String... carNames) {
-            super(carNames);
+        public MockCars(RandomNumberPicker picker, String... carNames) {
+            super(picker, carNames);
         }
 
         @Override

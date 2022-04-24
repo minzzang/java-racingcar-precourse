@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class Mileage {
+public class Mileage implements Comparable<Mileage> {
 
     private int meter;
 
@@ -23,6 +23,10 @@ public class Mileage {
         return meter;
     }
 
+    public boolean isSame(Mileage value) {
+        return this.equals(value);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -35,4 +39,10 @@ public class Mileage {
     public int hashCode() {
         return Objects.hash(meter);
     }
+
+    @Override
+    public int compareTo(Mileage o) {
+        return Integer.compare(meter, o.meter);
+    }
+
 }
