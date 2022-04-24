@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RacingCars {
 
-    private final List<Car> cars;
+    final List<Car> cars;
 
     public RacingCars(String... carNames) {
         cars = mapCars(carNames);

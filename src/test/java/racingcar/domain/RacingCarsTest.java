@@ -3,7 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingCarsTest {
 
@@ -11,9 +11,26 @@ class RacingCarsTest {
     @Test
     public void run() {
         // given
-        RacingCars cars = new RacingCars("그랜져", "제네시스");
+        MockCars cars = new MockCars("그랜져", "제네시스");
         // when
         cars.run();
+        // then
+        assertThat(2).isEqualTo(cars.count);
     }
 
+    static class MockCars extends RacingCars {
+
+        int count;
+
+        public MockCars(String... carNames) {
+            super(carNames);
+        }
+
+        @Override
+        public void run() {
+            for (Car car : cars) {
+                count++;
+            }
+        }
+    }
 }
