@@ -25,4 +25,8 @@ public class Car {
     public Mileage getMileage() {
         return mileage;
     }
+
+    public void record(Round round) {
+        round.record(carName, mileage);
+    }
 }

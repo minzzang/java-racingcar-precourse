@@ -2,21 +2,27 @@ package racingcar.domain;
 
 public class RoundManager {
 
-    public static final int FIRST_ROUND = 0;
+    public static final int FIRST_ROUND = 1;
 
-    private final int totalRound;
-    private int currentRound;
+    private final RoundNumber totalRound;
+    private RoundNumber currentRound;
+    private final Rounds rounds;
 
     public RoundManager(int totalRound) {
-        this.totalRound = totalRound;
-        this.currentRound = FIRST_ROUND;
+        this.totalRound = new RoundNumber(totalRound);
+        this.currentRound = new RoundNumber(FIRST_ROUND);
+        this.rounds = new Rounds(totalRound);
     }
 
     public boolean isNotEnded() {
-        return totalRound != currentRound;
+        return !totalRound.isNext(currentRound);
     }
 
     public void nextRound() {
-        currentRound++;
+        currentRound = currentRound.nextRound();
+    }
+
+    public Round getCurrentRound() {
+        return rounds.getRound(currentRound);
     }
 }

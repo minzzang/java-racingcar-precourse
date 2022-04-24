@@ -12,7 +12,7 @@ public class Racing {
 
     public void play() {
         while (roundManager.isNotEnded()) {
-            cars.run();
+            cars.run(roundManager.getCurrentRound());
             roundManager.nextRound();
         }
     }

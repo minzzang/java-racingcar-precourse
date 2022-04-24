@@ -12,8 +12,9 @@ class RacingCarsTest {
     public void run() {
         // given
         MockCars cars = new MockCars("그랜져", "제네시스");
+        Round round = new Round();
         // when
-        cars.run();
+        cars.run(round);
         // then
         assertThat(2).isEqualTo(cars.count);
     }
@@ -27,7 +28,7 @@ class RacingCarsTest {
         }
 
         @Override
-        public void run() {
+        public void run(Round round) {
             for (Car car : cars) {
                 count++;
             }

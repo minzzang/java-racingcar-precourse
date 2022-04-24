@@ -21,10 +21,12 @@ public class RacingCars {
         return cars;
     }
 
-    public void run() {
+    public void run(Round round) {
         for (Car car : cars) {
             int randomNumber = RandomNumberPicker.pick();
             car.run(randomNumber);
+
+            car.record(round);
         }
     }
 }

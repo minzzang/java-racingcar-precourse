@@ -25,7 +25,7 @@ public class RacingTest {
         int count;
 
         @Override
-        public void run() {
+        public void run(Round round) {
             count++;
         }
     }
