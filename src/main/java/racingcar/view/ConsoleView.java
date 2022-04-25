@@ -28,6 +28,7 @@ public class ConsoleView {
             Round round = rounds.getRound(new RoundNumber(i));
 
             printRoundResult(round, input.getCarNames());
+            System.out.println();
         }
     }
 
