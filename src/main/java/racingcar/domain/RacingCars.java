@@ -10,7 +10,7 @@ public class RacingCars {
     private final RandomNumberPicker picker;
     final List<Car> cars;
 
-    public RacingCars(RandomNumberPicker picker, String... carNames) {
+    public RacingCars(RandomNumberPicker picker, String[] carNames) {
         this.picker = picker;
         this.cars = mapCars(carNames);
     }

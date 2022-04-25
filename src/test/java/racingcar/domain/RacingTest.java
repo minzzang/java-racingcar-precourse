@@ -40,7 +40,7 @@ public class RacingTest {
     public void getWinners() {
         // given
         int totalRound = 2;
-        RacingCars racingCars = new RacingCars(new ArrayNumberPicker(),"그랜저","제네시스");
+        RacingCars racingCars = new RacingCars(new ArrayNumberPicker(),new String[] {"그랜저","제네시스"});
         Racing racing = new Racing(racingCars, totalRound);
         racing.play();
         // when

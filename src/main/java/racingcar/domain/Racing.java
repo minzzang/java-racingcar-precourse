@@ -21,4 +21,8 @@ public class Racing {
         Round lastRound = roundManager.getLastRound();
         return lastRound.getWinners();
     }
+
+    public Rounds getRounds() {
+        return roundManager.getRounds();
+    }
 }
