@@ -2,6 +2,9 @@ package racingcar.domain;
 
 import java.util.Objects;
 
+import static racingcar.view.ErrorMessage.DEFAULT;
+import static racingcar.view.ErrorMessage.NAME_LESS_FIVE;
+
 public class CarName {
 
     public static final int NAME_SIZE_LIMIT = 5;
@@ -10,7 +13,7 @@ public class CarName {
 
     public CarName(String name) {
         if (isNotCreate(name)) {
-            throw new IllegalArgumentException("1자 이상 5자 이하의 이름만 가능합니다.");
+            throw new IllegalArgumentException(DEFAULT.getMessage() + NAME_LESS_FIVE.getMessage());
         }
         this.name = name;
     }
@@ -33,5 +36,10 @@ public class CarName {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
