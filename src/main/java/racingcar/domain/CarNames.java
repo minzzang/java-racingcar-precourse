@@ -3,8 +3,7 @@ package racingcar.domain;
 import java.util.HashSet;
 import java.util.Set;
 
-import static racingcar.view.ErrorMessage.DEFAULT;
-import static racingcar.view.ErrorMessage.DUPLICATE_NAME;
+import static racingcar.view.ErrorMessage.*;
 
 public class CarNames {
 
@@ -14,7 +13,21 @@ public class CarNames {
 
     public CarNames(String names) {
         this.carNames = names.split(COMMA);
+        checkEmpty();
+        trim();
         checkDuplicates();
+    }
+
+    private void checkEmpty() {
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException(DEFAULT.getMessage() + NOT_ENTER_COMMAS.getMessage());
+        }
+    }
+
+    private void trim() {
+        for (int i = 0; i < carNames.length; i++) {
+            carNames[i] = carNames[i].trim();
+        }
     }
 
     private void checkDuplicates() {
